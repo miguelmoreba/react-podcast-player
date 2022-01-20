@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path='/podcast-url' element={<PodcastUrl/>}></Route>
+        <Route path="/podcast-url" element={<PodcastUrl />}></Route>
       </Routes>
     </Router>
   );

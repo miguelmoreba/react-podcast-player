@@ -1,5 +1,9 @@
 import React from 'react';
 
 export const PodcastUrl = () => {
-  return <div>PodcastUrl works</div>;
+  return (
+      <div className='box'>
+          <input type="text" className='flex-element'/>
+      </div>
+  );
 };
