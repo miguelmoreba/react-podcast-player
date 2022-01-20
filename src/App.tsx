@@ -1,10 +1,13 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { PodcastUrl } from "./Components/PodcastUrl";
+
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Hello from React
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+      <Route path='/podcast-url' element={<PodcastUrl/>}></Route>
+      </Routes>
+    </Router>
   );
 }
 
