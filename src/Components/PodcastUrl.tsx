@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { parseEpisodeUrl } from "../Library/podcastUrlTranslator";
 
 export const PodcastUrl = () => {
   const [sanitisedUrl, setSanitisedUrl] = useState("");
 
+  const handleUrlInput = async (myUrl: string) => {
+    const url = await parseEpisodeUrl(myUrl);
+    setSanitisedUrl(url);
+
+  }
+
   const renderPlayer = () => {
-    if (sanitisedUrl === "") {
-      return;
-    } else if (!sanitisedUrl) {
+    if (!sanitisedUrl) {
       return <p>Please enter a valid url</p>;
     } else {
       return (
@@ -25,8 +30,10 @@ export const PodcastUrl = () => {
       <input
         type="text"
         className="flex-element"
-        value={sanitisedUrl}
-        onInput={(e: React.ChangeEvent<HTMLInputElement>) => setSanitisedUrl(e.target.value)}
+        onInput={async (e: React.ChangeEvent<HTMLInputElement>) => {
+
+          await handleUrlInput(e.target.value)
+        }}
       />
       {renderPlayer()}
     </div>
